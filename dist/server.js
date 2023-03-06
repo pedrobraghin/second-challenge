@@ -14,8 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 const path_1 = __importDefault(require("path"));
+const mongoose_1 = __importDefault(require("mongoose"));
 dotenv_1.default.config({ path: path_1.default.resolve(__dirname, '../config.env') });
 const app_1 = require("./app");
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
+mongoose_1.default.connect(DB).then((con) => {
+    console.log('Connected to database!');
+});
 const port = process.env.PORT || 4000;
 app_1.app.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
     console.log(`Listening to port ${port}, environment: ${process.env.NODE_ENV}`);
