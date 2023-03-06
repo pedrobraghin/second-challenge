@@ -1,7 +1,5 @@
-import dotenv from 'dotenv';
-import path from 'path';
+import 'dotenv/config';
 import mongoose from 'mongoose';
-dotenv.config({ path: path.resolve(__dirname, '../config.env') });
 
 import { app } from './app';
 
