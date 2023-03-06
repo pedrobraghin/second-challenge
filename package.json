@@ -1,0 +1,19 @@
+{
+	"name": "second-challenge",
+	"version": "1.0.0",
+	"description": "Second Challenge of the COMPASS.UOL's Scholarship Program: Back-end Journey (Node.js) - AWS Cloud Context | 01/16/2023",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pedrobraghin/second-challenge.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/pedrobraghin/second-challenge/issues"
+	},
+	"homepage": "https://github.com/pedrobraghin/second-challenge#readme"
+}
