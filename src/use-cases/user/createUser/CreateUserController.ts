@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import { User } from '../../../types/User';
 
 import { CreateUserService } from './CreateUserService';
 
@@ -10,7 +11,7 @@ export class CreateUserController {
 	}
 
 	async handle(req: Request, res: Response, _next: NextFunction) {
-		const userData = req.body;
+		const userData: User = req.body;
 		const user = await this.createUserService.execute(userData);
 
 		return res.status(201).json({
