@@ -1,4 +1,5 @@
 import { IUsersRepository } from '../../../repositories/IUsersRepository';
+import { hashPass } from '../../../security/security';
 import { User } from '../../../types/User';
 
 export class CreateUserService {
@@ -9,7 +10,10 @@ export class CreateUserService {
 	}
 
 	async execute(userData: User) {
+		userData.password = await hashPass(userData.password);
+
 		const createdUser = await this.usersRepository.signUp(userData);
+
 		if (!createdUser) {
 			throw new Error('User already exists');
 		}
