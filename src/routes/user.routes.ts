@@ -1,6 +1,10 @@
 import { Router } from 'express';
 import { createUserController } from '../use-cases/user';
 
-const router = Router();
+const usersRouter = Router();
 
-router.post('/signUp', createUserController.handle);
+usersRouter.post('/signUp', (req, res, next) => {
+	createUserController.handle(req, res, next);
+});
+
+export { usersRouter };
