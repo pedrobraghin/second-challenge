@@ -21,6 +21,20 @@ const eventSchema = new Schema<Event>({
 		type: Date,
 		default: Date.now(),
 	},
+
+	weekDay: {
+		type: String,
+	},
+});
+
+eventSchema.pre('save', function (next) {
+	this.weekDay = this.dateTime
+		.toLocaleString('en-us', {
+			weekday: 'long',
+		})
+		.toLowerCase();
+
+	next();
 });
 
 const EventModel = model('Event', eventSchema);
