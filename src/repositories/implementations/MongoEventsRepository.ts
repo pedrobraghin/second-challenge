@@ -20,19 +20,9 @@ export class MongoEventsRepository implements IEventsRepository {
 	}
 
 	async getEventByWeekDay(weekDay: string): Promise<Event[]> {
-		const events = await EventModel.find();
+		const events = await EventModel.find({ weekDay: weekDay });
 
-		const filtered: Event[] = events.filter((event) => {
-			const eventWeekDay = new Date(event.dateTime)
-				.toLocaleString('en-us', {
-					weekday: 'long',
-				})
-				.toLowerCase();
-
-			return weekDay === eventWeekDay;
-		});
-
-		return filtered;
+		return events;
 	}
 
 	async deleteEventById(eventId: string): Promise<Event | null> {

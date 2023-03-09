@@ -3,6 +3,7 @@ interface Event {
 	dateTime: Date;
 	userId: string;
 	createdAt: Date;
+	weekDay: string;
 }
 
 export { Event };
