@@ -7,8 +7,8 @@ export class GetAllEventsService {
 		this.eventsRepository = eventsRepository;
 	}
 
-	async execute() {
-		const events = await this.eventsRepository.getAllEvents();
+	async execute(userId: string) {
+		const events = await this.eventsRepository.getAllEventsOnUser(userId);
 		return events;
 	}
 }

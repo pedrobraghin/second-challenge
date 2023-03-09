@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import { CatchExpressError } from '../../../../decorators/CatchExpressError';
 import { GetEventByIdService } from './GetEventByIdService';
 
 export class GetEventByIdController {
@@ -8,10 +9,12 @@ export class GetEventByIdController {
 		this.getEventByIdService = getEventByIdService;
 	}
 
+	@CatchExpressError
 	async handle(req: Request, res: Response, _next: NextFunction) {
-		const eventId = req.params.id;
+		const userId: string = req.body.user._id;
+		const eventId: string = req.params.id;
 
-		const event = await this.getEventByIdService.execute(eventId);
+		const event = await this.getEventByIdService.execute(userId, eventId);
 
 		return res.status(200).json({
 			status: 'success',

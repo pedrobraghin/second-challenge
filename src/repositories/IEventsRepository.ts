@@ -3,9 +3,9 @@ import { Event } from '../types/Event';
 
 interface IEventsRepository {
 	createEvent(event: Event): Promise<Event | null>;
-	getAllEvents(): Promise<Event[]>;
-	getEventById(eventId: string): Promise<Event | null>;
-	getEventByWeekDay(weekDay: string): Promise<Event[]>;
+	getAllEventsOnUser(userId: string): Promise<Event[]>;
+	getEventById(userId: string, eventId: string): Promise<Event | null>;
+	getEventByWeekDay(userId: string, weekDay: string): Promise<Event[]>;
 	deleteEventById(eventId: string): Promise<Event | null>;
 	deleteEventByWeekDay(weekDay: string): Promise<Event | null>;
 }

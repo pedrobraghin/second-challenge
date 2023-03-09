@@ -8,8 +8,8 @@ export class GetEventByIdService {
 		this.eventsRepository = eventsRepository;
 	}
 
-	async execute(eventId: string) {
-		const event = await this.eventsRepository.getEventById(eventId);
+	async execute(userId: string, eventId: string) {
+		const event = await this.eventsRepository.getEventById(userId, eventId);
 
 		if (!event) {
 			throw new AppError(404, 'Event not found');
