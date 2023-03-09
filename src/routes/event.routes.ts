@@ -6,7 +6,7 @@ import {
 	getEventByIdController,
 	getEventByWeekDayController,
 	deleteEventByIdController,
-	// deleteEventByWeekDayController,
+	deleteEventByWeekDayController,
 } from '../use-cases/event';
 
 import { auth } from '../middlewares/auth';
@@ -26,13 +26,8 @@ eventsRouter.get('/', (req, res, next) => {
 eventsRouter.get('/:id', getEventByIdController.handle);
 
 eventsRouter.delete('/:id', deleteEventByIdController.handle);
-// eventsRouter.delete('/', (req, res, next) => {
-// 	const { weekDay } = req.query;
-
-// 	if (!weekDay) {
-// 		return next(new AppError(400, 'A week day is required'));
-// 	}
-// 	deleteEventByWeekDayController.handle(req, res, next);
-// });
+eventsRouter.delete('/', (req, res, next) => {
+	deleteEventByWeekDayController.handle(req, res, next);
+});
 
 export { eventsRouter };
