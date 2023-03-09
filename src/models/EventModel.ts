@@ -25,8 +25,8 @@ const eventSchema = new Schema<Event>({
 	weekDay: {
 		type: String,
 	},
-  
-  active: {
+
+	active: {
 		type: Boolean,
 		default: true,
 		select: false,
