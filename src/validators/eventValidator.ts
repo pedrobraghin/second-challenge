@@ -5,7 +5,17 @@ const eventSchema = Joi.object({
 	dateTime: Joi.date()
 		.iso()
 		.required()
-		.min(new Date(new Date().getMinutes() - 1)),
+		.min(new Date(new Date().getMinutes() - 1))
+		.required(),
 });
 
-export { eventSchema };
+const updateSchema = Joi.object({
+	description: Joi.string().optional(),
+	dateTime: Joi.date()
+		.iso()
+		.required()
+		.min(new Date(new Date().getMinutes() - 1))
+		.optional(),
+});
+
+export { eventSchema, updateSchema };

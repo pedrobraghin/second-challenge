@@ -10,7 +10,20 @@ const userSchema = Joi.object({
 	country: Joi.string().alphanum().required(),
 	birthDate: Joi.date()
 		.min(new Date(new Date().getFullYear() - 130))
-		.max(new Date(Date.now() - 6)),
+		.max(new Date(Date.now() - 6))
+		.required(),
 });
 
-export { userSchema };
+const userUpdate = Joi.object({
+	firstName: Joi.string().alphanum().min(3).max(30).optional(),
+	lastName: Joi.string().alphanum().min(3).max(30).optional(),
+	email: Joi.string().email().optional(),
+	city: Joi.string().alphanum().optional(),
+	country: Joi.string().alphanum().optional(),
+	birthDate: Joi.date()
+		.min(new Date(new Date().getFullYear() - 130))
+		.max(new Date(Date.now() - 6))
+		.optional(),
+});
+
+export { userSchema, userUpdate };
