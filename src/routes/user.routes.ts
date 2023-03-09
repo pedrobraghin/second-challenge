@@ -3,8 +3,6 @@ import { createUserController } from '../use-cases/user';
 
 const usersRouter = Router();
 
-usersRouter.post('/signUp', (req, res, next) => {
-	createUserController.handle(req, res, next);
-});
+usersRouter.post('/signUp', createUserController.handle);
 
 export { usersRouter };
