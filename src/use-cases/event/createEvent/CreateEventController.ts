@@ -11,6 +11,7 @@ export class CreateEventController {
 
 	async handle(req: Request, res: Response, _next: NextFunction) {
 		const eventData: Event = req.body;
+		eventData.userId = req.body.user._id;
 		const event = await this.createEventService.execute(eventData);
 
 		return res.status(201).json({
