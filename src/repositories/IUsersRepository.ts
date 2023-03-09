@@ -6,6 +6,7 @@ interface IUsersRepository {
 	deleteUser(userId: string): Promise<User | null>;
 	updateUser(user: User): Promise<User | null>;
 	signUp(user: User): Promise<User | null>;
+	findByEmail(email: string): Promise<User | null>;
 }
 
 export { IUsersRepository };

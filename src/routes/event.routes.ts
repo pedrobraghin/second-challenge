@@ -1,5 +1,4 @@
 import { Router } from 'express';
-// import { AppError } from '../errors/AppError';
 
 import {
 	createEventController,
@@ -10,11 +9,10 @@ import {
 	// deleteEventByWeekDayController,
 } from '../use-cases/event';
 
-const eventsRouter = Router({ mergeParams: true });
+import { auth } from '../middlewares/auth';
 
-eventsRouter.post('/', (req, res, next) => {
-	createEventController.handle(req, res, next);
-});
+const eventsRouter = Router({ mergeParams: true });
+eventsRouter.post('/', auth, createEventController.handle);
 
 eventsRouter.get('/', (req, res, next) => {
 	const { weekDay } = req.query;
