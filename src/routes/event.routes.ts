@@ -4,7 +4,7 @@ import { Router } from 'express';
 import {
 	createEventController,
 	// getAllEventsController,
-	// deleteEventByIdController,
+	deleteEventByIdController,
 	// deleteEventByWeekDayController,
 	// getEventById,
 } from '../use-cases/event';
@@ -12,14 +12,16 @@ import {
 const eventsRouter = Router({ mergeParams: true });
 
 eventsRouter.post('/', (req, res, next) => {
-	console.log(createEventController);
+	//console.log(createEventController);
 	createEventController.handle(req, res, next);
 });
 
 // eventsRouter.get('/:id', getEventById.handle);
 // eventsRouter.get('/', getAllEventsController.handle);
 
-// eventsRouter.delete('/:id', deleteEventByIdController.handle);
+eventsRouter.delete('/:id', (req, res, next) => {
+	deleteEventByIdController.handle(req, res, next);
+});
 // eventsRouter.delete('/', (req, res, next) => {
 // 	const { weekDay } = req.query;
 
