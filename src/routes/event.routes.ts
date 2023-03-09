@@ -12,7 +12,10 @@ import {
 import { auth } from '../middlewares/auth';
 
 const eventsRouter = Router({ mergeParams: true });
-eventsRouter.post('/', auth, createEventController.handle);
+
+eventsRouter.use(auth);
+
+eventsRouter.post('/', createEventController.handle);
 
 eventsRouter.get('/', (req, res, next) => {
 	const { weekDay } = req.query;
@@ -20,16 +23,9 @@ eventsRouter.get('/', (req, res, next) => {
 	else getAllEventsController.handle(req, res, next);
 });
 
-eventsRouter.get('/:id', (req, res, next) => {
-	getEventByIdController.handle(req, res, next);
-});
+eventsRouter.get('/:id', getEventByIdController.handle);
 
-// eventsRouter.get('/:id', getEventById.handle);
-// eventsRouter.get('/', getAllEventsController.handle);
-
-eventsRouter.delete('/:id', (req, res, next) => {
-	deleteEventByIdController.handle(req, res, next);
-});
+eventsRouter.delete('/:id', deleteEventByIdController.handle);
 // eventsRouter.delete('/', (req, res, next) => {
 // 	const { weekDay } = req.query;
 
