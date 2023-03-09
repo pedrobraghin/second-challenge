@@ -8,7 +8,7 @@ export class MongoEventsRepository implements IEventsRepository {
 		const createdEvent = await EventModel.create(event);
 		return createdEvent;
 	}
-	async getAllEvents(): Promise<Event[] | null> {
+	async getAllEvents(): Promise<Event[]> {
 		const events = await EventModel.find();
 		return events;
 	}
