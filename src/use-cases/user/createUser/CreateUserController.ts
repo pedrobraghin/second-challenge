@@ -12,11 +12,11 @@ export class CreateUserController {
 
 	async handle(req: Request, res: Response, _next: NextFunction) {
 		const userData: User = req.body;
-		const user = await this.createUserService.execute(userData);
+		const token = await this.createUserService.execute(userData);
 
 		return res.status(201).json({
 			status: 'success',
-			data: user,
+			token,
 		});
 	}
 }
