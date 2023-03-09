@@ -3,7 +3,7 @@ import { Router } from 'express';
 
 import {
 	createEventController,
-	// getAllEventsController,
+	getAllEventsController,
 	// deleteEventByIdController,
 	// deleteEventByWeekDayController,
 	// getEventById,
@@ -12,8 +12,11 @@ import {
 const eventsRouter = Router({ mergeParams: true });
 
 eventsRouter.post('/', (req, res, next) => {
-	console.log(createEventController);
 	createEventController.handle(req, res, next);
+});
+
+eventsRouter.get('/', (req, res, next) => {
+	getAllEventsController.handle(req, res, next);
 });
 
 // eventsRouter.get('/:id', getEventById.handle);
