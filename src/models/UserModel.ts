@@ -47,6 +47,11 @@ const userSchema = new Schema<User>(
 			minlength: 8,
 			required: [true, 'A password must be provided'],
 		},
+		active: {
+			type: Boolean,
+			default: true,
+			select: false,
+		},
 	},
 	{ timestamps: true }
 );

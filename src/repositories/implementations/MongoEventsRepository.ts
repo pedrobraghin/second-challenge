@@ -8,21 +8,28 @@ export class MongoEventsRepository implements IEventsRepository {
 		const createdEvent = await EventModel.create(event);
 		return createdEvent;
 	}
-	async getAllEvents(): Promise<Event[] | null> {
+
+	async getAllEvents(): Promise<Event[]> {
 		const events = await EventModel.find();
 		return events;
 	}
+
 	async getEventById(eventId: string): Promise<Event | null> {
 		const event = await EventModel.findById(eventId);
 		return event;
 	}
-	async getEventByWeekDay(weekDay: string): Promise<Event | null> {
-		throw new Error('Method not implemented.');
+
+	async getEventByWeekDay(weekDay: string): Promise<Event[]> {
+		const events = await EventModel.find({ weekDay: weekDay });
+
+		return events;
 	}
+
 	async deleteEventById(eventId: string): Promise<Event | null> {
 		const deletedEvent = await EventModel.findByIdAndDelete(eventId);
 		return deletedEvent;
 	}
+
 	async deleteEventByWeekDay(weekDay: string): Promise<Event | null> {
 		throw new Error('Method not implemented.');
 	}

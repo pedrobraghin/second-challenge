@@ -1,4 +1,16 @@
-/* eslint-disable no-unused-vars */
 import { createEventController } from './createEvent/CreateEventFactory';
+import { deleteEventByIdController } from './deleteEvent/DeleteEventFactory';
 
-export { createEventController };
+import {
+	getAllEventsController,
+	getEventByIdController,
+	getEventByWeekDayController,
+} from './getEvent/GetEventFactory';
+
+export {
+	createEventController,
+	getAllEventsController,
+	getEventByIdController,
+	getEventByWeekDayController,
+  deleteEventByIdController
+};

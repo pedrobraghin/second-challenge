@@ -7,6 +7,7 @@ interface User {
 	city: string;
 	country: string;
 	birthDate: Date;
+	active: boolean;
 }
 
 export { User };
