@@ -30,7 +30,14 @@ export class MongoEventsRepository implements IEventsRepository {
 		return deletedEvent;
 	}
 
-	async deleteEventByWeekDay(weekDay: string): Promise<Event | null> {
-		throw new Error('Method not implemented.');
+	async deleteEventByWeekDay(
+		userId: string,
+		weekDay: string
+	): Promise<Event | null> {
+		await EventModel.deleteMany({
+			userId: userId,
+			_weekDay: weekDay,
+		});
+		return null;
 	}
 }
