@@ -5,7 +5,7 @@ interface IEventsRepository {
 	createEvent(event: Event): Promise<Event | null>;
 	getAllEvents(): Promise<Event[]>;
 	getEventById(eventId: string): Promise<Event | null>;
-	getEventByWeekDay(weekDay: string): Promise<Event | null>;
+	getEventByWeekDay(weekDay: string): Promise<Event[]>;
 	deleteEventById(eventId: string): Promise<Event | null>;
 	deleteEventByWeekDay(weekDay: string): Promise<Event | null>;
 }
