@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-const eventSchema = Joi.object({
+const createEventSchema = Joi.object({
 	description: Joi.string().required(),
 	dateTime: Joi.date()
 		.iso()
@@ -9,7 +9,7 @@ const eventSchema = Joi.object({
 		.required(),
 });
 
-const updateSchema = Joi.object({
+const updateEventSchema = Joi.object({
 	description: Joi.string().optional(),
 	dateTime: Joi.date()
 		.iso()
@@ -18,4 +18,4 @@ const updateSchema = Joi.object({
 		.optional(),
 });
 
-export { eventSchema, updateSchema };
+export { createEventSchema, updateEventSchema };

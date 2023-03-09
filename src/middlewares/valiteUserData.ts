@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { userSchema } from '../validators/userValidator';
+import { createUserSchema } from '../validators/userValidator';
 import { User } from '../types/User';
 import { ValidationError } from 'joi';
 import { AppError } from '../errors/AppError';
@@ -12,7 +12,7 @@ export async function validateUserData(
 	try {
 		const userData: User = req.body;
 
-		await userSchema.validateAsync(userData);
+		await createUserSchema.validateAsync(userData);
 		return next();
 	} catch (err) {
 		if (err instanceof ValidationError) {

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { eventSchema } from '../validators/eventValidator';
+import { createEventSchema } from '../validators/eventValidator';
 import { Event } from '../types/Event';
 import { ValidationError } from 'joi';
 import { AppError } from '../errors/AppError';
@@ -11,7 +11,7 @@ export async function validateEventData(
 ) {
 	try {
 		const { description, dateTime }: Event = req.body;
-		await eventSchema.validateAsync({ description, dateTime });
+		await createEventSchema.validateAsync({ description, dateTime });
 		return next();
 	} catch (err) {
 		if (err instanceof ValidationError) {

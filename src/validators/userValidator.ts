@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-const userSchema = Joi.object({
+const createUserSchema = Joi.object({
 	firstName: Joi.string().alphanum().min(3).max(30).required(),
 	lastName: Joi.string().alphanum().min(3).max(30).required(),
 	email: Joi.string().email().required(),
@@ -14,7 +14,7 @@ const userSchema = Joi.object({
 		.required(),
 });
 
-const userUpdate = Joi.object({
+const updateUserSchema = Joi.object({
 	firstName: Joi.string().alphanum().min(3).max(30).optional(),
 	lastName: Joi.string().alphanum().min(3).max(30).optional(),
 	email: Joi.string().email().optional(),
@@ -26,4 +26,4 @@ const userUpdate = Joi.object({
 		.optional(),
 });
 
-export { userSchema, userUpdate };
+export { createUserSchema, updateUserSchema };
