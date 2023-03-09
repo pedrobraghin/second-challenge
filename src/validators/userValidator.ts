@@ -9,8 +9,8 @@ const userSchema = Joi.object({
 	city: Joi.string().alphanum().required(),
 	country: Joi.string().alphanum().required(),
 	birthDate: Joi.date()
-		.min(new Date().getFullYear() - 130)
-		.max(new Date().getFullYear() - 6),
+		.min(new Date(new Date().getFullYear() - 130))
+		.max(new Date(Date.now() - 6)),
 });
 
 export { userSchema };
