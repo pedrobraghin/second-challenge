@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { Event } from '../../../types/Event';
 import { CreateEventService } from './CreateEventService';
+import { CatchExpressError } from '../../../decorators/CatchExpressError';
 
 export class CreateEventController {
 	private createEventService: CreateEventService;
@@ -9,6 +10,7 @@ export class CreateEventController {
 		this.createEventService = createEventService;
 	}
 
+	@CatchExpressError
 	async handle(req: Request, res: Response, _next: NextFunction) {
 		const eventData: Event = req.body;
 		eventData.userId = req.body.user._id;
