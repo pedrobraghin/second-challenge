@@ -21,6 +21,12 @@ const eventSchema = new Schema<Event>({
 		type: Date,
 		default: Date.now(),
 	},
+
+	active: {
+		type: Boolean,
+		default: true,
+		select: false,
+	},
 });
 
 const EventModel = model('Event', eventSchema);
