@@ -3,17 +3,27 @@ import { Router } from 'express';
 
 import {
 	createEventController,
-	// getAllEventsController,
+	getAllEventsController,
+	getEventByIdController,
+	getEventByWeekDayController,
 	deleteEventByIdController,
 	// deleteEventByWeekDayController,
-	// getEventById,
 } from '../use-cases/event';
 
 const eventsRouter = Router({ mergeParams: true });
 
 eventsRouter.post('/', (req, res, next) => {
-	//console.log(createEventController);
 	createEventController.handle(req, res, next);
+});
+
+eventsRouter.get('/', (req, res, next) => {
+	const { weekDay } = req.query;
+	if (weekDay) getEventByWeekDayController.handle(req, res, next);
+	else getAllEventsController.handle(req, res, next);
+});
+
+eventsRouter.get('/:id', (req, res, next) => {
+	getEventByIdController.handle(req, res, next);
 });
 
 // eventsRouter.get('/:id', getEventById.handle);
