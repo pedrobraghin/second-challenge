@@ -7,8 +7,11 @@ export class GetEventByWeekDayService {
 		this.eventsRepository = eventsRepository;
 	}
 
-	async execute(weekDay: string) {
-		const events = await this.eventsRepository.getEventByWeekDay(weekDay);
+	async execute(userId: string, weekDay: string) {
+		const events = await this.eventsRepository.getEventByWeekDay(
+			userId,
+			weekDay
+		);
 
 		return events;
 	}

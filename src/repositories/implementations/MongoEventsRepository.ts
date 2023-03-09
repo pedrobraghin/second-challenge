@@ -9,18 +9,18 @@ export class MongoEventsRepository implements IEventsRepository {
 		return createdEvent;
 	}
 
-	async getAllEvents(): Promise<Event[]> {
-		const events = await EventModel.find();
+	async getAllEventsOnUser(userId: string): Promise<Event[]> {
+		const events = await EventModel.find({ userId: userId });
 		return events;
 	}
 
-	async getEventById(eventId: string): Promise<Event | null> {
-		const event = await EventModel.findById(eventId);
+	async getEventById(userId: string, eventId: string): Promise<Event | null> {
+		const event = await EventModel.findOne({ _id: eventId, userId: userId });
 		return event;
 	}
 
-	async getEventByWeekDay(weekDay: string): Promise<Event[]> {
-		const events = await EventModel.find({ weekDay: weekDay });
+	async getEventByWeekDay(userId: string, weekDay: string): Promise<Event[]> {
+		const events = await EventModel.find({ userId: userId, weekDay: weekDay });
 
 		return events;
 	}
