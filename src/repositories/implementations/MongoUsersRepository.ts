@@ -23,4 +23,9 @@ export class MongoUsersRepository implements IUsersRepository {
 		const updatedUser = await UserModel.findOneAndUpdate(user);
 		return updatedUser;
 	}
+
+	async findByEmail(email: string): Promise<User | null> {
+		const user = await UserModel.findOne({ email });
+		return user;
+	}
 }
