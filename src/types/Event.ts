@@ -4,6 +4,7 @@ interface Event {
 	userId: string;
 	createdAt: Date;
 	weekDay: string;
+	active: boolean;
 }
 
 export { Event };

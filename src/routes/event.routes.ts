@@ -6,9 +6,8 @@ import {
 	getAllEventsController,
 	getEventByIdController,
 	getEventByWeekDayController,
-	// deleteEventByIdController,
+	deleteEventByIdController,
 	// deleteEventByWeekDayController,
-	// getEventById,
 } from '../use-cases/event';
 
 const eventsRouter = Router({ mergeParams: true });
@@ -30,7 +29,9 @@ eventsRouter.get('/:id', (req, res, next) => {
 // eventsRouter.get('/:id', getEventById.handle);
 // eventsRouter.get('/', getAllEventsController.handle);
 
-// eventsRouter.delete('/:id', deleteEventByIdController.handle);
+eventsRouter.delete('/:id', (req, res, next) => {
+	deleteEventByIdController.handle(req, res, next);
+});
 // eventsRouter.delete('/', (req, res, next) => {
 // 	const { weekDay } = req.query;
 
