@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { User } from '../../../types/User';
 
 import { CreateUserService } from './CreateUserService';
+import { CatchExpressError } from '../../../decorators/CatchExpressError';
 
 export class CreateUserController {
 	private createUserService: CreateUserService;
@@ -10,6 +11,7 @@ export class CreateUserController {
 		this.createUserService = createUserService;
 	}
 
+	@CatchExpressError
 	async handle(req: Request, res: Response, _next: NextFunction) {
 		const userData: User = req.body;
 		const token = await this.createUserService.execute(userData);
