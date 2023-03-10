@@ -46,4 +46,8 @@ export class MongoEventsRepository implements IEventsRepository {
 		});
 		return null;
 	}
+
+	async deleteAllUserEvents(userId: string): Promise<void> {
+		await EventModel.deleteMany({ userId: userId });
+	}
 }
