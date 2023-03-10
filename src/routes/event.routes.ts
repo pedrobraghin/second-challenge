@@ -16,7 +16,6 @@ const eventsRouter = Router({ mergeParams: true });
 eventsRouter.use(auth);
 
 eventsRouter.post('/', createEventController.handle);
-
 eventsRouter.get('/', (req, res, next) => {
 	const { weekDay } = req.query;
 	if (weekDay) getEventByWeekDayController.handle(req, res, next);
@@ -26,8 +25,6 @@ eventsRouter.get('/', (req, res, next) => {
 eventsRouter.get('/:id', getEventByIdController.handle);
 
 eventsRouter.delete('/:id', deleteEventByIdController.handle);
-eventsRouter.delete('/', (req, res, next) => {
-	deleteEventByWeekDayController.handle(req, res, next);
-});
+eventsRouter.delete('/', deleteEventByWeekDayController.handle);
 
 export { eventsRouter };

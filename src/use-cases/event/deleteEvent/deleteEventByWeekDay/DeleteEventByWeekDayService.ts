@@ -1,5 +1,4 @@
 import { IEventsRepository } from '../../../../repositories/IEventsRepository';
-import { AppError } from '../../../../errors/AppError';
 
 export class DeleteEventByWeekDayService {
 	private eventsRepository: IEventsRepository;
@@ -13,9 +12,7 @@ export class DeleteEventByWeekDayService {
 			userId,
 			weekDay
 		);
-		if (!deletedEvent) {
-			throw new AppError(404, 'Event id does not exists');
-		}
+
 		return deletedEvent;
 	}
 }

@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { DeleteEventByIdService } from './DeleteEventByIdService';
+import { CatchExpressError } from '../../../../decorators/CatchExpressError';
 
 export class DeleteEventByIdController {
 	private deleteEventByIdService: DeleteEventByIdService;
@@ -8,9 +9,11 @@ export class DeleteEventByIdController {
 		this.deleteEventByIdService = deleteEventByIdService;
 	}
 
+	@CatchExpressError
 	async handle(req: Request, res: Response, _next: NextFunction) {
 		const eventId = req.params.id;
-		await this.deleteEventByIdService.execute(eventId);
+		const userId = req.body.user._id;
+		await this.deleteEventByIdService.execute(userId, eventId);
 
 		return res.status(201).json({
 			status: 'success',
