@@ -56,6 +56,11 @@ const userSchema = new Schema<User>(
 	{ timestamps: true }
 );
 
+userSchema.pre(/^find/, function (next) {
+	this.find({ active: { $ne: false } });
+	next();
+});
+
 const UserModel = model('User', userSchema);
 
 export { UserModel };

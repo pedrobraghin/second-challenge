@@ -7,8 +7,11 @@ export class DeleteEventByIdService {
 		this.eventsRepository = eventsRepository;
 	}
 
-	async execute(eventId: string) {
-		const deletedEvent = await this.eventsRepository.deleteEventById(eventId);
+	async execute(userId: string, eventId: string) {
+		const deletedEvent = await this.eventsRepository.deleteEventById(
+			userId,
+			eventId
+		);
 		if (!deletedEvent) {
 			throw new AppError(404, 'Event id does not exists');
 		}

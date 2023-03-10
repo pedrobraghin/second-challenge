@@ -1,9 +1,9 @@
 import { usersRepository } from '../UsersRepositoryFactory';
 
 import { GetUserByIdService } from './GetUserByIdService';
-import { GetUSerByIdController } from './GetUserByIdController';
+import { GetUserByIdController } from './GetUserByIdController';
 
 const getUserByIdService = new GetUserByIdService(usersRepository);
-const getUserByIdController = new GetUSerByIdController(getUserByIdService);
+const getUserByIdController = new GetUserByIdController(getUserByIdService);
 
 export { getUserByIdService, getUserByIdController };

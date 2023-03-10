@@ -2,6 +2,7 @@
 import { User } from '../../types/User';
 import { IUsersRepository } from '../IUsersRepository';
 import { UserModel } from '../../models/UserModel';
+import { UpdateQuery } from 'mongoose';
 
 export class MongoUsersRepository implements IUsersRepository {
 	async getUser(userId: string): Promise<User | null> {
@@ -19,8 +20,14 @@ export class MongoUsersRepository implements IUsersRepository {
 		return deletedUser;
 	}
 
-	async updateUser(user: User): Promise<User | null> {
-		const updatedUser = await UserModel.findOneAndUpdate(user);
+	async updateUser(
+		userId: string,
+		updateBody: UpdateQuery<User>
+	): Promise<User | null> {
+		const updatedUser = await UserModel.findByIdAndUpdate(userId, updateBody, {
+			new: true,
+			runValidators: true,
+		});
 		return updatedUser;
 	}
 
