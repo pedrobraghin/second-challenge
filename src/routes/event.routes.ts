@@ -9,13 +9,17 @@ import {
 	deleteEventByWeekDayController,
 } from '../use-cases/event';
 
+import { validateEventData } from '../middlewares/validateEventData';
 import { auth } from '../middlewares/auth';
 
 const eventsRouter = Router({ mergeParams: true });
 
 eventsRouter.use(auth);
 
-eventsRouter.post('/', createEventController.handle);
+
+eventsRouter.post('/', validateEventData, createEventController.handle);
+
+
 eventsRouter.get('/', (req, res, next) => {
 	const { weekDay } = req.query;
 	if (weekDay) getEventByWeekDayController.handle(req, res, next);

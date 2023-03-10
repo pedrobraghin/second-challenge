@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import { validateUserData } from '../middlewares/valiteUserData';
+
 import {
 	createUserController,
 	loginUserController,
@@ -11,7 +13,7 @@ import { auth } from '../middlewares/auth';
 
 const usersRouter = Router();
 
-usersRouter.post('/signUp', createUserController.handle);
+usersRouter.post('/signUp', validateUserData, createUserController.handle);
 usersRouter.post('/signIn', loginUserController.handle);
 
 usersRouter.get('/me', auth, getUserByIdController.handle);
