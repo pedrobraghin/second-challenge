@@ -8,6 +8,7 @@ interface IEventsRepository {
 	getEventByWeekDay(userId: string, weekDay: string): Promise<Event[]>;
 	deleteEventById(userId: string, eventId: string): Promise<Event | null>;
 	deleteEventByWeekDay(userId: string, weekDay: string): Promise<Event | null>;
+	deleteAllUserEvents(userId: string): Promise<void>;
 }
 
 export { IEventsRepository };
