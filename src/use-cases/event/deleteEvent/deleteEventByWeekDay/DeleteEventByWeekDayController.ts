@@ -22,7 +22,7 @@ export class DeleteEventByWeekDayController {
 
 		return res.status(201).json({
 			status: 'success',
-			message: `Events on id ${weekDay} deleted`,
+			message: `Events on ${weekDay} deleted`,
 		});
 	}
 }
