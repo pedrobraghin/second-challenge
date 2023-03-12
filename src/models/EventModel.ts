@@ -25,12 +25,6 @@ const eventSchema = new Schema<Event>({
 	weekDay: {
 		type: String,
 	},
-
-	active: {
-		type: Boolean,
-		default: true,
-		select: false,
-	},
 });
 
 eventSchema.pre('save', function (next) {
