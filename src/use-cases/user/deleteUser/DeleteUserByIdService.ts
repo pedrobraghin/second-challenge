@@ -15,7 +15,7 @@ export class DeleteUserByIdService {
 	}
 
 	async execute(id: string) {
-		const user = await this.usersRepository.updateUser(id, { active: false });
+		const user = await this.usersRepository.deleteUser(id);
 		if (!user) throw new AppError(404, 'User not found');
 		await this.eventsRepository.deleteAllUserEvents(id);
 
