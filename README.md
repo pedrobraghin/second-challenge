@@ -113,7 +113,7 @@ npm test
 
 # How to Use
 
-The application has a MongoDB database, with a collection for Users and another one for Events.
+The application requires a Mongo database, with a collection for Users and another one for Events.
 
 Once running, the application awaits for HTTP requests.
 
