@@ -10,7 +10,7 @@ The challenge this time will be to make your code from the previous challenge ev
 
 - [**Group Participants**](#group-participants)
 - [**Fulfilled Requirements**](#fulfilled-requirements)
-- [**Links**](#links)
+- [**Deploy and Swagger**](#deploy-and-swagger)
 - [**How to Run Locally**](#how-to-run-locally)
 - [**How to Use**](#how-to-use)
 - [**Comments**](#comments)
@@ -46,11 +46,10 @@ The challenge this time will be to make your code from the previous challenge ev
 - [ ] Docker;
 - [x] eslint/Prettier;
 
-# Links
+# Deploy and Swagger
 
-[Swagger](https://firstchallenge-compasspb-production.up.railway.app/api-docs)
-
-[Deploy](https://firstchallenge-compasspb-production.up.railway.app/api/v1)
+- **Deploy Base URL**: https://second-challenge-production.up.railway.app/api/v1
+- **Swagger**: https://second-challenge-production.up.railway.app/api-docs/
 
 # How to Run Locally
 
