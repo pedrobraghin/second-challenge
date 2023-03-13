@@ -14,7 +14,10 @@ export class GetEventByWeekDayController {
 		const userId: string = req.body.user._id;
 		const weekDay = req.query.weekDay as string;
 
-		const events = await this.getEventByWeekDayService.execute(userId, weekDay);
+		const events = await this.getEventByWeekDayService.execute(
+			userId,
+			weekDay.toLowerCase()
+		);
 
 		return res.status(200).json({
 			status: 'success',
