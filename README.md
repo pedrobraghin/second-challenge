@@ -2,7 +2,9 @@
 
 Second Challenge of the Compass UOL Scholarship Program: Back-end Journey (Node.js) - AWS Cloud Context - 01/16/2023
 
-The challenge this time will be to make your code from the previous challenge even better by adding some new features. The novelty is that they will develop as a group.
+The first challenge consisted of creating an API that will be used for a Planner application, built for a hypothetical Compass UOL client. This Planner will help the client to organize his week and his tasks.
+
+The challenge this time will be to make your code from the previous challenge even better by adding some new features.
 
 # Group Participants
 
@@ -76,13 +78,27 @@ The application has a MongoDB database, with a collection for Users and another 
 
 Once running, the application awaits for HTTP requests. It supports the following operations:
 
-- **Get all events**: Retorna array com todos os eventos;
-- **Get event by ID**: Retorna evento com ID especificado;
-- **Get events by Weekday**: Retorna array com todos os eventos com o dia da semana especificado;
-- **Create event**: Cria um novo evento;
-- **User SignUp**: Cria um novo usuário;
-- **User SignIn**: Faz autenticação de um usário existente;
-- **Delete event by ID**: Deleta um evento com ID especificado;
-- **Delete event by Weekday**: Deleta todos os eventos com o dia da semana especificado.
+## GET Operations
 
-The documentation on how each method works is available via Swagger.
+- **Get All Events**: _Must be authenticated_. Returns all events of the currently logged in user.
+- **Get Event by ID**: _Must be authenticated_. Returns the event of the specified ID if it's associated to the currently logged in user.
+- **Get Events by Weekday**: _Must be authenticated_. Returns all events for the specified day of the week of the currently logged in user.
+- **Get Me**: _Must be authenticated_. Returns all user data of the currently logged in user.
+
+## POST Operations
+
+- **Create Event**: _Must be authenticated_. Creates an event using data from the request body.
+- **Sign Up**: Create and login an user.
+- **Sign In**: Logs in an existing user.
+
+## PATCH Operations
+
+- **Update User**: _Must be authenticated_. Updates user data of the currently logged in user.
+
+## DELETE Operations
+
+- **Delete Event By ID**: _Must be authenticated_. Deletes the event of the specified ID if it's associated to the currently logged in user.
+- **Delete Event By Weekday**: _Must be authenticated_. Deletes all events for the specified day of the week of the currently logged in user.
+- **Delete Me**: _Must be authenticated_. Deletes the currently logged in user.
+
+Documentation of how each method works is available via Swagger.
