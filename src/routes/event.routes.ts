@@ -6,7 +6,7 @@ import {
 	getEventByIdController,
 	getEventByWeekDayController,
 	deleteEventByIdController,
-	deleteEventByWeekDayController,
+	deleteEventsByWeekDayController,
 } from '../use-cases/event';
 
 import { validateEventData } from '../middlewares/validateEventData';
@@ -27,6 +27,6 @@ eventsRouter.get('/', (req, res, next) => {
 eventsRouter.get('/:id', getEventByIdController.handle);
 
 eventsRouter.delete('/:id', deleteEventByIdController.handle);
-eventsRouter.delete('/', deleteEventByWeekDayController.handle);
+eventsRouter.delete('/', deleteEventsByWeekDayController.handle);
 
 export { eventsRouter };

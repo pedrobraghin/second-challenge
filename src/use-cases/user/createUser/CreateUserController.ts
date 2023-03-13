@@ -17,9 +17,10 @@ export class CreateUserController {
 		userData.birthDate = new Date(userData.birthDate);
 		const token = await this.createUserService.execute(userData);
 
+		res.header('Authorization', 'Bearer ' + token);
+
 		return res.status(201).json({
 			status: 'success',
-			token,
 		});
 	}
 }
