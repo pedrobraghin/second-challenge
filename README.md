@@ -92,7 +92,7 @@ npm install
 npm run build
 ```
 
-8. Start the application on production mode:
+8. Start the application:
 
 ```
 npm start
