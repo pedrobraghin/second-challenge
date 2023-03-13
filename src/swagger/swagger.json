@@ -3,7 +3,7 @@
     "info": {
       "title": "Challenge 2 - Compass UOL PB",
       "version": "1.0.0",
-      "description": "Rest API using MongoDB and Mongoose"
+      "description": "Rest API using MongoDB and Mongoose. Second Challenge of the Compass UOL Scholarship Program: Back-end Journey (Node.js) - AWS Cloud Context - 2023"
     },
     "components": {
       "securitySchemes": {
@@ -32,6 +32,7 @@
         "/api/v1/events": {
         "post": {
             "summary": "Create a new event",
+            "description": "The dateTime must follow the ISO 8601 format.\n\n YYYY-MM-DDTHH:mm:ss.sssZ, where 'T' separates the date and time, 'Z' indicates the time zone as UTC, and the milliseconds '.sss' are optional.\n\n",
             "tags": [
             "Events"
             ],
@@ -48,7 +49,8 @@
                     "properties": {
                     "description": {
                         "type": "string",
-                        "description": "Description of the event"
+                        "description": "Description of the event",
+                        "example": "Event created from swagger"
                     },
                     "dateTime": {
                         "type": "string",
@@ -73,7 +75,8 @@
             }
         },
         "get": {
-            "summary": "Get all events of the user",
+            "summary": "Get events of the user",
+            "description": "The query parameter can be 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday' or 'sunday'.\n\n If absent, it will bring all user events.\n\n Uppercase or lowercase letters do not affect it.",
             "tags": [
             "Events"
             ],
@@ -84,7 +87,8 @@
                 "schema": {
                 "type": "string"
                 },
-                "description": "The day of the week (e.g. Sunday)"
+                "description": "The day of the week (e.g. Sunday)",
+                "example": "monday"
             }
             ],
             "responses": {
@@ -101,6 +105,7 @@
         },
         "delete": {
             "summary": "Delete events of the user for a given weekday",
+            "description": "The query parameter can be 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday' or 'sunday'.\n\n If absent, it will not work.\n\n Uppercase or lowercase letters do not affect it.",
             "tags": [
             "Events"
             ],
@@ -111,7 +116,8 @@
                 "schema": {
                 "type": "string"
                 },
-                "description": "The day of the week (e.g. Sunday)"
+                "description": "The day of the week (e.g. Sunday)",
+                "example": "monday"
             }
             ],
             "responses": {
@@ -130,6 +136,7 @@
     "/api/v1/events/{id}": {
         "get": {
         "summary": "Get an event by ID",
+        "description": "The event id is provided upon event creation or can be accessed via the route /api/v1/events which displays information about all user events.\n\n If absent, it will not work.\n\nIt will only work for ids related to user events.",
         "tags": [
             "Events"
         ],
@@ -145,8 +152,8 @@
             }
         ],
         "responses": {
-            "200": {
-            "description": "Event retrieved successfully"
+            "204": {
+            "description": "Event deleted successfully"
             },
             "401": {
             "description": "User not authenticated"
@@ -161,6 +168,7 @@
         },
         "delete": {
         "summary": "Delete an event by ID",
+        "description": "The event id is provided upon event creation or can be accessed via the route /api/v1/events which displays information about all user events.\n\n If absent, it will not work.\n\nIt will only work for ids related to user events.",
         "tags": [
             "Events"
         ],
@@ -195,6 +203,7 @@
     "/api/v1/users/signUp": {
         "post": {
         "summary": "User signUp",
+        "description": "The birthdate must correspond to an age between 5 and 120 years.\n\n The email cannot already be in use.\n\n The password must contain 8 characters.\n\n The confirmPassword must be the same as the password.\n\nThe token provided in 'Response headers' after 'authorization: Bearer' is necessary to use authenticated routes. It can be registered in the 'Authorize' option in the top right corner of the page.",
         "tags": [
             "Users"
         ],
@@ -217,37 +226,45 @@
                 "properties": {
                     "firstName": {
                     "type": "string",
-                    "description": "First name of the user"
+                    "description": "First name of the user",
+                    "example": "FirstaName"
                     },
                     "lastName": {
                     "type": "string",
-                    "description": "Last name of the user"
+                    "description": "Last name of the user",
+                    "example": "lastName"
                     },
                     "email": {
                     "type": "string",
                     "format": "email",
-                    "description": "Email address of the user"
+                    "description": "Email address of the user",
+                    "example": "exemple@gmail.com"
                     },
                     "city": {
                     "type": "string",
-                    "description": "City of the user"
+                    "description": "City of the user",
+                    "example": "City name"
                     },
                     "country": {
                     "type": "string",
-                    "description": "Country of the user"
+                    "description": "Country of the user",
+                    "example": "Country name"
                     },
                     "birthDate": {
                     "type": "string",
                     "format": "date",
-                    "description": "Birth date of the user"
+                    "description": "Birth date of the user",
+                    "example": "2000-01-01"
                     },
                     "password": {
                     "type": "string",
-                    "description": "Password of the user"
+                    "description": "Password of the user",
+                    "example": "password123"
                     },
                     "confirmPassword": {
                     "type": "string",
-                    "description": "Confirmation of the user's password"
+                    "description": "Confirmation of the user's password",
+                    "example": "password123"
                     }
                 }
                 }
@@ -270,6 +287,7 @@
     "/api/v1/users/signIn": {
         "post": {
         "summary": "User Sign In",
+        "description": "The provided email must be registered.\n\nThe token provided in 'Response headers' after 'authorization: Bearer' is necessary to use authenticated routes. It can be registered in the 'Authorize' option in the top right corner of the page.",
         "tags": [
             "Users"
         ],
@@ -287,11 +305,13 @@
                     "email": {
                     "type": "string",
                     "format": "email",
-                    "description": "Email address of the user"
+                    "description": "Email address of the user",
+                    "example": "exemple@gmail.com"
                     },
                     "password": {
                     "type": "string",
-                    "description": "Password of the user"
+                    "description": "Password of the user",
+                    "example":"password123"
                     }
                 }
                 }
@@ -312,6 +332,7 @@
     "/api/v1/users/me": {
         "get": {
             "summary": "Get user information",
+            "description": "The informations of the user corresponding to the token registered in the 'Authorize' option will be returned.",
             "tags": [
                 "Users"
             ],
@@ -326,6 +347,7 @@
         },
         "patch": {
             "summary": "Update user information",
+            "description": "You should modify the desired fields and repeat the remaining information of the user.\n\nThe birthdate must correspond to an age between 5 and 120 years.\n\n The email cannot already be in use.\n\n The password must contain 8 characters.\n\n The confirmPassword must be the same as the password.\n\nThe token provided in 'Response headers' after 'authorization: Bearer' is necessary to use authenticated routes. It can be registered in the 'Authorize' option in the top right corner of the page.",
             "tags": [
                 "Users"
             ],
@@ -338,36 +360,44 @@
                             "properties": {
                                 "firstName": {
                                     "type": "string",
-                                    "description": "First name of the user"
+                                    "description": "First name of the user",
+                                    "example": "FirstName"
                                 },
                                 "lastName": {
                                     "type": "string",
-                                    "description": "Last name of the user"
+                                    "description": "Last name of the user",
+                                    "example": "LastName"
                                 },
                                 "email": {
                                     "type": "string",
-                                    "description": "Email address of the user"
+                                    "description": "Email address of the user",
+                                    "example":"exemple@gmail.com"
                                 },
                                 "city": {
                                     "type": "string",
-                                    "description": "City where the user lives"
+                                    "description": "City where the user lives",
+                                    "example":"City name"
                                 },
                                 "country": {
                                     "type": "string",
-                                    "description": "Country where the user lives"
+                                    "description": "Country where the user lives",
+                                    "example":"Country name"
                                 },
                                 "birthDate": {
                                     "type": "string",
                                     "format": "date",
-                                    "description": "Date of birth of the user (YYYY-MM-DD)"
+                                    "description": "Date of birth of the user (YYYY-MM-DD)",
+                                    "example":"2000-01-01"
                                 },
                                 "password": {
                                     "type": "string",
-                                    "description": "User password"
+                                    "description": "User password",
+                                    "example":"password123"
                                 },
                                 "confirmPassword": {
                                     "type": "string",
-                                    "description": "Confirm password"
+                                    "description": "Confirm password",
+                                    "example":"password123"
                                 }
                             }
                         }
@@ -388,6 +418,7 @@
         },
         "delete": {
             "summary": "Delete user account",
+            "description": "The user corresponding to the token registered in the 'Authorize' option in the top right corner of the page will be deleted.",
             "tags": [
                 "Users"
             ],

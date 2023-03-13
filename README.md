@@ -10,7 +10,7 @@ The challenge this time will be to make your code from the previous challenge ev
 
 - [**Group Participants**](#group-participants)
 - [**Fulfilled Requirements**](#fulfilled-requirements)
-- [**Links**](#links)
+- [**Deploy and Swagger**](#deploy-and-swagger)
 - [**How to Run Locally**](#how-to-run-locally)
 - [**How to Use**](#how-to-use)
 - [**Comments**](#comments)
@@ -46,11 +46,18 @@ The challenge this time will be to make your code from the previous challenge ev
 - [ ] Docker;
 - [x] eslint/Prettier;
 
-# Links
+# Deploy and Swagger
 
-[Swagger](https://firstchallenge-compasspb-production.up.railway.app/api-docs)
+- **Deploy Base URL**: https://second-challenge-production.up.railway.app/api/v1
+- **Swagger**: https://second-challenge-production.up.railway.app/api-docs/
 
-[Deploy](https://firstchallenge-compasspb-production.up.railway.app/api/v1)
+For testing authenticated routes on Swagger, first locate and copy the Bearer token (on the Response Headers of either the SignUp or SignIn routes):
+
+![Swagger1](https://i.ibb.co/fVW90rB/swagger1.png)
+
+Then add the token on the Authorize option, on the top-right corner:
+
+![Swagger2](https://i.ibb.co/QPpJf9Y/swagger2.png)
 
 # How to Run Locally
 
@@ -106,11 +113,11 @@ npm test
 
 # How to Use
 
-The application has a MongoDB database, with a collection for Users and another one for Events.
+The application requires a Mongo database, with a collection for Users and another one for Events.
 
 Once running, the application awaits for HTTP requests.
 
-Documentation of how each request should look like is available via Swagger (view [links](#links)).
+Documentation of how each request should look like is available via Swagger (view [Deploy and Swagger](#deploy-and-swagger)).
 
 Requests are also implemented on the file `Second Challenge PB.postman_collection.json`, which can be opened using POSTMAN.
 
