@@ -51,7 +51,7 @@ The challenge this time will be to make your code from the previous challenge ev
 - **Deploy Base URL**: https://second-challenge-production.up.railway.app/api/v1
 - **Swagger**: https://second-challenge-production.up.railway.app/api-docs/
 
-For testing authenticated routes on Swagger, first locate and copy the Bearer token (on Header):
+For testing authenticated routes on Swagger, first locate and copy the Bearer token (on the Response Headers of either the SignUp or SignIn routes):
 
 ![Swagger1](https://i.ibb.co/fVW90rB/swagger1.png)
 
