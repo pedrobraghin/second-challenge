@@ -51,6 +51,14 @@ The challenge this time will be to make your code from the previous challenge ev
 - **Deploy Base URL**: https://second-challenge-production.up.railway.app/api/v1
 - **Swagger**: https://second-challenge-production.up.railway.app/api-docs/
 
+For testing authenticated routes on Swagger, first locate and copy the Bearer token (on Header):
+
+![Swagger1](https://i.ibb.co/fVW90rB/swagger1.png)
+
+Then add the token on the Authorize option, on the top-right corner:
+
+![Swagger2](https://i.ibb.co/QPpJf9Y/swagger2.png)
+
 # How to Run Locally
 
 1. Certify that Node v18.13.0 or any posterior Major 18 version is installed;
