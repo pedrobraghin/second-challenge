@@ -14,9 +14,10 @@ export class LoginUserController {
 		const { email, password } = req.body;
 		const token = await this.loginUserService.execute(email, password);
 
+		res.header('Authorization', 'Bearer ' + token);
+
 		return res.status(200).json({
 			status: 'success',
-			token,
 		});
 	}
 }

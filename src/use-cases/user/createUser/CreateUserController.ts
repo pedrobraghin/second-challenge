@@ -16,9 +16,10 @@ export class CreateUserController {
 		const userData: User = req.body;
 		const token = await this.createUserService.execute(userData);
 
+		res.header('Authorization', 'Bearer ' + token);
+
 		return res.status(201).json({
 			status: 'success',
-			token,
 		});
 	}
 }
