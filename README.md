@@ -117,7 +117,7 @@ The application has a MongoDB database, with a collection for Users and another 
 
 Once running, the application awaits for HTTP requests.
 
-Documentation of how each request should look like is available via Swagger (view [links](#links)).
+Documentation of how each request should look like is available via Swagger (view [Deploy and Swagger](#deploy-and-swagger)).
 
 Requests are also implemented on the file `Second Challenge PB.postman_collection.json`, which can be opened using POSTMAN.
 
