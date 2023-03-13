@@ -12,12 +12,14 @@ export class DeleteEventsByWeekDayController {
 
 	@CatchExpressError
 	async handle(req: Request, res: Response, _next: NextFunction) {
-		const weekDay = req.query.weekDay as string;
+		let weekDay = req.query.weekDay as string;
+		weekDay = weekDay.toLowerCase();
+
 		if (!weekDay) {
 			throw new AppError(400, 'A week day is required');
 		}
-		const userId: string = req.body.user._id;
 
+		const userId: string = req.body.user._id;
 		await this.deleteEventByWeekDayService.execute(userId, weekDay);
 
 		return res.status(201).json({
