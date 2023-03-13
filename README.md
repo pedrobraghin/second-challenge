@@ -55,39 +55,50 @@ The challenge this time will be to make your code from the previous challenge ev
 # How to Run Locally
 
 1. Certify that Node v18.13.0 or any posterior Major 18 version is installed;
-2. Clone the repository:
+
+2. Have a MongoDB connection of your own (with a connection string and password);
+
+3. Clone the repository:
 
 ```
 git clone https://github.com/pedrobraghin/second-challenge
 ```
 
-2. Change to project directory:
+4. Change to project directory:
 
 ```
 cd second-challenge
 ```
 
-3. Install necessary dependencies:
+5. Install necessary dependencies:
 
 ```
 npm install
 ```
 
-4. Substitute .env for the provided file;
+6. Make a .env file following the contents of .env.example:
 
-5. Build the application:
+- NODE_ENV: Either development or production;
+- PORT: The port to host the application;
+- DATABASE: The connection string to the Mongo Database;
+- DATABASE_PASSWORD: The password
+- JWT_SECRET: For JWT authentication, can be any random string;
+- JWT_EXPIRES_IN: The time in which a JWT expires;
+- BCRYPT_SALT: For encryption, can be any random string.
+
+7. Build the application:
 
 ```
 npm run build
 ```
 
-6. Start the application on production mode:
+8. Start the application:
 
 ```
 npm start
 ```
 
-PS.: For the automated tests, run:
+9. For running the automated tests, use:
 
 ```
 npm test
