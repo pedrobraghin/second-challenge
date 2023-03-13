@@ -5,8 +5,8 @@
 	"main": "server.js",
 	"scripts": {
 		"build": "tsc",
-		"start": "node dist/server.js",
-		"start:dev": "tsnd --respawn --transpile-only --rs src/server.ts",
+		"start": "cross-env NODE_ENV=production node dist/server.js",
+		"start:dev": "cross-env NODE_ENV=development tsnd --respawn --transpile-only --rs src/server.ts",
 		"test": "jest"
 	},
 	"repository": {
@@ -23,6 +23,7 @@
 		"@joi/date": "^2.1.0",
 		"bcrypt": "^5.1.0",
 		"cors": "^2.8.5",
+		"cross-env": "^7.0.3",
 		"dotenv": "^16.0.3",
 		"express": "^4.18.2",
 		"express-mongo-sanitize": "^2.2.0",
