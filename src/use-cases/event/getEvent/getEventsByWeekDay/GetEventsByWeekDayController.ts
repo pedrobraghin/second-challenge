@@ -12,8 +12,7 @@ export class GetEventsByWeekDayController {
 	@CatchExpressError
 	async handle(req: Request, res: Response, _next: NextFunction) {
 		const userId: string = req.body.user._id;
-		let weekDay = req.query.weekDay as string;
-		weekDay = weekDay.toLowerCase();
+		const weekDay = req.query.weekDay as string;
 
 		const events = await this.getEventsByWeekDayService.execute(
 			userId,
