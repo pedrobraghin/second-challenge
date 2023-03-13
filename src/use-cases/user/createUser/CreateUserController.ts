@@ -14,6 +14,7 @@ export class CreateUserController {
 	@CatchExpressError
 	async handle(req: Request, res: Response, _next: NextFunction) {
 		const userData: User = req.body;
+		userData.birthDate = new Date(userData.birthDate);
 		const token = await this.createUserService.execute(userData);
 
 		return res.status(201).json({
