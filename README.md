@@ -17,8 +17,8 @@ The challenge this time will be to make your code from the previous challenge ev
 
 # Group Participants
 
-- Pedro Braghin
-- Fernanda
+- Pedro Braghin da Silva
+- Fernanda de Paula Pessoa
 - Pedro Luiz da Costa Silva
 
 # Fulfilled Requirements
