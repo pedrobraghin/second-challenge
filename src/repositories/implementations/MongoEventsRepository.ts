@@ -44,6 +44,19 @@ export class MongoEventsRepository implements IEventsRepository {
 		return;
 	}
 
+	async isWeekDay(weekDay: string): Promise<boolean> {
+		const week: string[] = [
+			'monday',
+			'tuesday',
+			'wednesday',
+			'thursday',
+			'friday',
+			'saturday',
+			'sunday',
+		];
+		if (week.includes(weekDay)) return true;
+		return false;
+	}
 	async deleteAllUserEvents(userId: string): Promise<void> {
 		await EventModel.deleteMany({ userId: userId });
 	}
