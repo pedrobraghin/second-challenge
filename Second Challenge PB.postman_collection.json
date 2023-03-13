@@ -26,8 +26,13 @@
 						"header": [],
 						"url": {
 							"raw": "{{URL}}api/v1/events",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "events"]
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"events"
+							]
 						}
 					},
 					"response": []
@@ -49,8 +54,14 @@
 						"header": [],
 						"url": {
 							"raw": "{{URL}}api/v1/events/64068f18a5f244fb9d5b4f5b",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "events", "64068f18a5f244fb9d5b4f5b"]
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"events",
+								"64068f18a5f244fb9d5b4f5b"
+							]
 						}
 					},
 					"response": []
@@ -71,13 +82,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}api/v1/events?weekDay=sunday",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "events"],
+							"raw": "{{URL}}api/v1/events?weekDay=sundayy",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"events"
+							],
 							"query": [
 								{
 									"key": "weekDay",
-									"value": "sunday"
+									"value": "sundayy"
 								}
 							]
 						}
@@ -101,7 +117,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"description\": \"Testando criacao de eventos!!!\",\r\n\t\"dateTime\": \"2023-03-06T01:44:16.000+00:00\",\r\n    \"userId\": \"64088f0ca8201e2f303ee121\"\r\n}",
+							"raw": "{\r\n    \"description\": \"Testando criacao de eventos!!!\",\r\n\t\"dateTime\": \"2023-03-07T01:44:16.000+00:00\",\r\n    \"userId\": \"64088f0ca8201e2f303ee121\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -110,8 +126,13 @@
 						},
 						"url": {
 							"raw": "{{URL}}api/v1/events",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "events"]
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"events"
+							]
 						}
 					},
 					"response": []
@@ -133,8 +154,14 @@
 						"header": [],
 						"url": {
 							"raw": "{{URL}}api/v1/events/6408d12fdd36e3a5f7287e85",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "events", "6408d12fdd36e3a5f7287e85"]
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"events",
+								"6408d12fdd36e3a5f7287e85"
+							]
 						}
 					},
 					"response": []
@@ -156,8 +183,13 @@
 						"header": [],
 						"url": {
 							"raw": "{{URL}}api/v1/events?weekDay=sunday",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "events"],
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"events"
+							],
 							"query": [
 								{
 									"key": "weekDay",
@@ -202,8 +234,14 @@
 						},
 						"url": {
 							"raw": "{{URL}}api/v1/users/me",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "users", "me"]
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"me"
+							]
 						}
 					},
 					"response": []
@@ -234,8 +272,14 @@
 						},
 						"url": {
 							"raw": "{{URL}}api/v1/users/me",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "users", "me"]
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"me"
+							]
 						}
 					},
 					"response": []
@@ -260,7 +304,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"Pedro\",\r\n\t\"lastName\": \"Silva\",\r\n\t\"email\": \"pedro@google.com\",\r\n\t\"city\": \"Campo Grande\",\r\n\t\"country\": \"Brasil\",\r\n\t\"birthDate\": \"1997-01-31T01:44:16Z\",\r\n\t\"password\": \"senha123\",\r\n\t\"confirmPassword\": \"senha123\"\r\n}",
+							"raw": "{\r\n    \"firstName\": \"Pedro\",\r\n\t\"lastName\": \"Silva\",\r\n\t\"email\": \"pedro@google.com\",\r\n\t\"city\": \"Campo Grande\",\r\n\t\"country\": \"Brasil\",\r\n\t\"birthDate\": \"1997-01-31\",\r\n\t\"password\": \"senha123\",\r\n\t\"confirmPassword\": \"senha123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -269,8 +313,14 @@
 						},
 						"url": {
 							"raw": "{{URL}}api/v1/users/signUp",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "users", "signUp"]
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"signUp"
+							]
 						}
 					},
 					"response": []
@@ -304,8 +354,14 @@
 						},
 						"url": {
 							"raw": "{{URL}}api/v1/users/signIn",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "users", "signIn"]
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"signIn"
+							]
 						}
 					},
 					"response": []
@@ -327,13 +383,25 @@
 						"header": [],
 						"url": {
 							"raw": "{{URL}}api/v1/users/me",
-							"host": ["{{URL}}api"],
-							"path": ["v1", "users", "me"]
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"me"
+							]
 						}
 					},
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt",
+			"value": ""
 		}
 	]
 }
