@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
-import { DeleteEventByWeekDayService } from './DeleteEventByWeekDayService';
+import { DeleteEventsByWeekDayService } from './DeleteEventsByWeekDayService';
 import { CatchExpressError } from '../../../../decorators/CatchExpressError';
 import { AppError } from '../../../../errors/AppError';
 
-export class DeleteEventByWeekDayController {
-	private deleteEventByWeekDayService: DeleteEventByWeekDayService;
+export class DeleteEventsByWeekDayController {
+	private deleteEventByWeekDayService: DeleteEventsByWeekDayService;
 
-	constructor(deleteEventByIdService: DeleteEventByWeekDayService) {
+	constructor(deleteEventByIdService: DeleteEventsByWeekDayService) {
 		this.deleteEventByWeekDayService = deleteEventByIdService;
 	}
 

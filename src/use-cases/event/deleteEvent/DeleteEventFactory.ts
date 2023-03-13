@@ -1,7 +1,7 @@
 import { DeleteEventByIdController } from './deleteEventById/DeleteEventByIdController';
-import { DeleteEventByWeekDayController } from './deleteEventByWeekDay/DeleteEventByWeekDayController';
+import { DeleteEventsByWeekDayController } from './deleteEventsByWeekDay/DeleteEventsByWeekDayController';
 import { DeleteEventByIdService } from './deleteEventById/DeleteEventByIdService';
-import { DeleteEventByWeekDayService } from './deleteEventByWeekDay/DeleteEventByWeekDayService';
+import { DeleteEventsByWeekDayService } from './deleteEventsByWeekDay/DeleteEventsByWeekDayService';
 import { eventsRepository } from '../EventsRepositoryFactory';
 
 const deleteEventByIdService = new DeleteEventByIdService(eventsRepository);
@@ -9,16 +9,16 @@ const deleteEventByIdController = new DeleteEventByIdController(
 	deleteEventByIdService
 );
 
-const deleteEventByWeekDayService = new DeleteEventByWeekDayService(
+const deleteEventsByWeekDayService = new DeleteEventsByWeekDayService(
 	eventsRepository
 );
-const deleteEventByWeekDayController = new DeleteEventByWeekDayController(
-	deleteEventByWeekDayService
+const deleteEventsByWeekDayController = new DeleteEventsByWeekDayController(
+	deleteEventsByWeekDayService
 );
 
 export {
 	deleteEventByIdService,
 	deleteEventByIdController,
-	deleteEventByWeekDayService,
-	deleteEventByWeekDayController,
+	deleteEventsByWeekDayService,
+	deleteEventsByWeekDayController,
 };

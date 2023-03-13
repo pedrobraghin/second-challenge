@@ -1,6 +1,6 @@
 import { IEventsRepository } from '../../../../repositories/IEventsRepository';
 
-export class DeleteEventByWeekDayService {
+export class GetEventsByWeekDayService {
 	private eventsRepository: IEventsRepository;
 
 	constructor(eventsRepository: IEventsRepository) {
@@ -8,11 +8,11 @@ export class DeleteEventByWeekDayService {
 	}
 
 	async execute(userId: string, weekDay: string) {
-		const deletedEvent = await this.eventsRepository.deleteEventByWeekDay(
+		const events = await this.eventsRepository.getEventsByWeekDay(
 			userId,
 			weekDay
 		);
 
-		return deletedEvent;
+		return events;
 	}
 }

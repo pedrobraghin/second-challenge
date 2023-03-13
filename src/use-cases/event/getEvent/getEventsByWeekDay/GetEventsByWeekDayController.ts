@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import { CatchExpressError } from '../../../../decorators/CatchExpressError';
-import { GetEventByWeekDayService } from './GetEventByWeekDayService';
+import { GetEventsByWeekDayService } from './GetEventsByWeekDayService';
 
-export class GetEventByWeekDayController {
-	private getEventByWeekDayService: GetEventByWeekDayService;
+export class GetEventsByWeekDayController {
+	private getEventsByWeekDayService: GetEventsByWeekDayService;
 
-	constructor(getEventByWeekDayService: GetEventByWeekDayService) {
-		this.getEventByWeekDayService = getEventByWeekDayService;
+	constructor(getEventsByWeekDayService: GetEventsByWeekDayService) {
+		this.getEventsByWeekDayService = getEventsByWeekDayService;
 	}
 
 	@CatchExpressError
@@ -14,7 +14,10 @@ export class GetEventByWeekDayController {
 		const userId: string = req.body.user._id;
 		const weekDay = req.query.weekDay as string;
 
-		const events = await this.getEventByWeekDayService.execute(userId, weekDay);
+		const events = await this.getEventsByWeekDayService.execute(
+			userId,
+			weekDay
+		);
 
 		return res.status(200).json({
 			status: 'success',
