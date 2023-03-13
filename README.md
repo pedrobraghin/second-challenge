@@ -84,7 +84,7 @@ npm install
 - DATABASE_PASSWORD: The password
 - JWT_SECRET: For JWT authentication, can be any random string;
 - JWT_EXPIRES_IN: The time in which a JWT expires;
-- BCRYPT_SALT: For encryption, can be any random string.
+- BCRYPT_SALT: For encryption, can be any number.
 
 7. Build the application:
 
