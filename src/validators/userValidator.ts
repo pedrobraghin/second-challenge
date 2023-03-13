@@ -1,4 +1,6 @@
 import Joi from 'joi';
+import joiDate from '@joi/date';
+const joiExtended = Joi.extend(joiDate);
 
 const createUserSchema = Joi.object({
 	firstName: Joi.string().min(3).max(50).required(),
@@ -8,7 +10,9 @@ const createUserSchema = Joi.object({
 	confirmPassword: Joi.ref('password'),
 	city: Joi.string().required(),
 	country: Joi.string().required(),
-	birthDate: Joi.date()
+	birthDate: joiExtended
+		.date()
+		.format('YYYY-MM-DD')
 		.min(new Date(new Date().getFullYear() - 130))
 		.max(new Date(Date.now() - 6))
 		.required(),
@@ -20,7 +24,9 @@ const updateUserSchema = Joi.object({
 	email: Joi.string().email().optional(),
 	city: Joi.string().optional(),
 	country: Joi.string().optional(),
-	birthDate: Joi.date()
+	birthDate: joiExtended
+		.date()
+		.format('YYYY-MM-DD')
 		.min(new Date(new Date().getFullYear() - 130))
 		.max(new Date(Date.now() - 6))
 		.optional(),
