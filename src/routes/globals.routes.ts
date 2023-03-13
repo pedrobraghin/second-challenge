@@ -11,14 +11,22 @@ export function errorHandler(
 		return res.status(err.statusCode).json({
 			status: 'fail',
 			message: err.message,
-			err: err.stack,
+		});
+	} else if (err.name === 'MongoServerError') {
+		return res.status(400).json({
+			status: 'fail',
+			message: 'E-mail already exists',
+		});
+	} else if (err.name == 'ValidationError' || err.name == 'CastError') {
+		return res.status(400).json({
+			status: 'fail',
+			message: err.message,
 		});
 	}
 
 	return res.status(500).json({
 		status: 'error',
 		message: 'Something went wrong. Please try again later.',
-		err,
 	});
 }
 

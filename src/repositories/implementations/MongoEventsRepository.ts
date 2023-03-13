@@ -19,7 +19,7 @@ export class MongoEventsRepository implements IEventsRepository {
 		return event;
 	}
 
-	async getEventByWeekDay(userId: string, weekDay: string): Promise<Event[]> {
+	async getEventsByWeekDay(userId: string, weekDay: string): Promise<Event[]> {
 		const events = await EventModel.find({ userId: userId, weekDay: weekDay });
 
 		return events;
@@ -36,15 +36,12 @@ export class MongoEventsRepository implements IEventsRepository {
 		return deletedEvent;
 	}
 
-	async deleteEventByWeekDay(
-		userId: string,
-		weekDay: string
-	): Promise<Event | null> {
+	async deleteEventsByWeekDay(userId: string, weekDay: string): Promise<void> {
 		await EventModel.deleteMany({
 			userId: userId,
 			weekDay: weekDay,
 		});
-		return null;
+		return;
 	}
 
 	async deleteAllUserEvents(userId: string): Promise<void> {
