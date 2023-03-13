@@ -16,9 +16,7 @@ const eventsRouter = Router({ mergeParams: true });
 
 eventsRouter.use(auth);
 
-
 eventsRouter.post('/', validateEventData, createEventController.handle);
-
 
 eventsRouter.get('/', (req, res, next) => {
 	const { weekDay } = req.query;
