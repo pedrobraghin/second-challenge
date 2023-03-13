@@ -49,7 +49,7 @@ The challenge this time will be to make your code from the previous challenge ev
 # Deploy and Swagger
 
 - **Deploy Base URL**: https://second-challenge-production.up.railway.app/api/v1
-- **Swagger**: [**Click here**](https://second-challenge-production.up.railway.app/api-docs/)
+- **Swagger**: https://second-challenge-production.up.railway.app/api-docs/
 
 # How to Run Locally
 
