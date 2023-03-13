@@ -23,12 +23,12 @@ The challenge this time will be to make your code from the previous challenge ev
 - [x] Express;
 - [x] Input Validation;
 - [x] Readme.md;
-- [x] Unit Testing;
+- [x] Unit Testing (done on JEST);
 - [x] Use swagger to document the API;
 - [x] Explanation of how to run locally;
 - [x] JWT Authentication;
 - [x] Detailed Documentation;
-- [x] Deploy: [Link](https://firstchallenge-compasspb-production.up.railway.app/api/v1);
+- [x] Deploy;
 - [x] Share the repository link with us by email;
 - [x] Create a new repository.
 
@@ -72,11 +72,20 @@ PS.: For the automated tests, run:
 npm test
 ```
 
+# Swagger and Deploy
+
+[Swagger](https://firstchallenge-compasspb-production.up.railway.app/api-docs)
+[Deploy](https://firstchallenge-compasspb-production.up.railway.app/api/v1)
+
 # How to Use
 
 The application has a MongoDB database, with a collection for Users and another one for Events.
 
-Once running, the application awaits for HTTP requests. It supports the following operations:
+Once running, the application awaits for HTTP requests.
+
+Documentation of how each method works is available via Swagger.
+
+It supports the following operations:
 
 ## GET Operations
 
@@ -100,5 +109,3 @@ Once running, the application awaits for HTTP requests. It supports the followin
 - **Delete Event By ID**: _Must be authenticated_. Deletes the event of the specified ID if it's associated to the currently logged in user.
 - **Delete Event By Weekday**: _Must be authenticated_. Deletes all events for the specified day of the week of the currently logged in user.
 - **Delete Me**: _Must be authenticated_. Deletes the currently logged in user.
-
-Documentation of how each method works is available via Swagger.
