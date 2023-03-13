@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "cb061e78-7108-467d-945c-a57ea7ca6a7d",
+		"name": "Second Challenge PB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25607589"
+	},
+	"item": [
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Get All Events",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/events",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "events"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/events/64068f18a5f244fb9d5b4f5b",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "events", "64068f18a5f244fb9d5b4f5b"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event By Weekday",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/events?weekDay=sunday",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "events"],
+							"query": [
+								{
+									"key": "weekDay",
+									"value": "sunday"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Testando criacao de eventos!!!\",\r\n\t\"dateTime\": \"2023-03-06T01:44:16.000+00:00\",\r\n    \"userId\": \"64088f0ca8201e2f303ee121\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/events",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "events"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/events/6408d12fdd36e3a5f7287e85",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "events", "6408d12fdd36e3a5f7287e85"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event By Weekday",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/events?weekDay=sunday",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "events"],
+							"query": [
+								{
+									"key": "weekDay",
+									"value": "sunday"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get Me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/me",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "users", "me"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"lastName\": \"Costa\",\r\n\t\"country\": \"Nova Guiné\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/me",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "users", "me"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Up",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.headers.get('Authorization')) {\r",
+									"    pm.collectionVariables.set(\"jwt\", pm.response.headers.get('Authorization').split(\" \")[1]);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Pedro\",\r\n\t\"lastName\": \"Silva\",\r\n\t\"email\": \"pedro@google.com\",\r\n\t\"city\": \"Campo Grande\",\r\n\t\"country\": \"Brasil\",\r\n\t\"birthDate\": \"1997-01-31T01:44:16Z\",\r\n\t\"password\": \"senha123\",\r\n\t\"confirmPassword\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/signUp",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "users", "signUp"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.headers.get('Authorization')) {\r",
+									"    pm.collectionVariables.set(\"jwt\", pm.response.headers.get('Authorization').split(\" \")[1]);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"pedro6@google.com\",\r\n\t\"password\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/signIn",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "users", "signIn"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/me",
+							"host": ["{{URL}}api"],
+							"path": ["v1", "users", "me"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
