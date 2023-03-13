@@ -37,6 +37,12 @@ The challenge this time will be to make your code from the previous challenge ev
 - [ ] Docker;
 - [x] eslint/Prettier;
 
+# Swagger and Deploy links
+
+[Swagger](https://firstchallenge-compasspb-production.up.railway.app/api-docs)
+
+[Deploy](https://firstchallenge-compasspb-production.up.railway.app/api/v1)
+
 # How to Run Locally
 
 1. Certify that Node v18.13.0 or any posterior Major 18 version is installed;
@@ -71,11 +77,6 @@ PS.: For the automated tests, run:
 ```
 npm test
 ```
-
-# Swagger and Deploy
-
-[Swagger](https://firstchallenge-compasspb-production.up.railway.app/api-docs)
-[Deploy](https://firstchallenge-compasspb-production.up.railway.app/api/v1)
 
 # How to Use
 
