@@ -6,6 +6,15 @@ The first challenge consisted of creating an API that will be used for a Planner
 
 The challenge this time will be to make your code from the previous challenge even better by adding some new features.
 
+# Summary
+
+- [**Group Participants**](#group-participants)
+- [**Fulfilled Requirements**](#fulfilled-requirements)
+- [**Links**](#links)
+- [**How to Run Locally**](#how-to-run-locally)
+- [**How to Use**](#how-to-use)
+- [**Comments**](#comments)
+
 # Group Participants
 
 - Pedro Braghin
@@ -37,7 +46,7 @@ The challenge this time will be to make your code from the previous challenge ev
 - [ ] Docker;
 - [x] eslint/Prettier;
 
-# Swagger and Deploy links
+# Links
 
 [Swagger](https://firstchallenge-compasspb-production.up.railway.app/api-docs)
 
@@ -66,7 +75,13 @@ npm install
 
 4. Substitute .env for the provided file;
 
-5. Build and run the application:
+5. Build the application:
+
+```
+npm run build
+```
+
+6. Start the application on production mode:
 
 ```
 npm start
@@ -84,29 +99,35 @@ The application has a MongoDB database, with a collection for Users and another 
 
 Once running, the application awaits for HTTP requests.
 
-Documentation of how each method works is available via Swagger.
+Documentation of how each request should look like is available via Swagger (view [links](#links)).
 
-It supports the following operations:
+Requests are also implemented on the file `Second Challenge PB.postman_collection.json`, which can be opened using POSTMAN.
+
+The available operations are briefly described below.
 
 ## GET Operations
 
-- **Get All Events**: _Must be authenticated_. Returns all events of the currently logged in user.
-- **Get Event by ID**: _Must be authenticated_. Returns the event of the specified ID if it's associated to the currently logged in user.
-- **Get Events by Weekday**: _Must be authenticated_. Returns all events for the specified day of the week of the currently logged in user.
-- **Get Me**: _Must be authenticated_. Returns all user data of the currently logged in user.
+- **Get All Events**: Returns all events of the currently logged in user. Must be authenticated.
+- **Get Event by ID**: Returns the event of the specified ID if it's associated to the currently logged in user. Must be authenticated.
+- **Get Events by Weekday**: Returns all events for the specified day of the week of the currently logged in user. Must be authenticated.
+- **Get Me**: Returns all user data of the currently logged in user. Must be authenticated.
 
 ## POST Operations
 
-- **Create Event**: _Must be authenticated_. Creates an event using data from the request body.
+- **Create Event**: Creates an event using data from the request body. Must be authenticated.
 - **Sign Up**: Create and login an user.
 - **Sign In**: Logs in an existing user.
 
 ## PATCH Operations
 
-- **Update User**: _Must be authenticated_. Updates user data of the currently logged in user.
+- **Update User**: Updates user data of the currently logged in user. Must be authenticated.
 
 ## DELETE Operations
 
-- **Delete Event By ID**: _Must be authenticated_. Deletes the event of the specified ID if it's associated to the currently logged in user.
-- **Delete Event By Weekday**: _Must be authenticated_. Deletes all events for the specified day of the week of the currently logged in user.
-- **Delete Me**: _Must be authenticated_. Deletes the currently logged in user.
+- **Delete Event By ID**: Deletes the event of the specified ID if it's associated to the currently logged in user. Must be authenticated.
+- **Delete Event By Weekday**: Deletes all events for the specified day of the week of the currently logged in user. Must be authenticated.
+- **Delete Me**: Deletes the currently logged in user. Must be authenticated.
+
+# Comments
+
+- The file structure is based on the SOLID architecture.
