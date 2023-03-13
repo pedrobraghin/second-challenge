@@ -5,10 +5,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.app = void 0;
 const express_1 = __importDefault(require("express"));
+const app_routes_1 = require("./routes/app.routes");
+const globals_routes_1 = require("./routes/globals.routes");
+const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
+const swagger_json_1 = __importDefault(require("./swagger/swagger.json"));
+const cors_1 = __importDefault(require("cors"));
+const helmet_1 = __importDefault(require("helmet"));
+const express_mongo_sanitize_1 = __importDefault(require("express-mongo-sanitize"));
 const app = (0, express_1.default)();
 exports.app = app;
-app.get('/', (_req, res) => {
-    return res.status(200).json({
-        status: 'success',
-    });
-});
+app.use((0, cors_1.default)({ origin: '*' }));
+app.use((0, helmet_1.default)());
+app.use(express_1.default.json());
+app.use((0, express_mongo_sanitize_1.default)());
+app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default));
+app.use('/api/v1', app_routes_1.router);
+app.all('*', globals_routes_1.notFoundRouteHandler);
+app.use(globals_routes_1.errorHandler);
