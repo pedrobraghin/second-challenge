@@ -15,7 +15,7 @@ export class DeleteEventByIdController {
 		const userId = req.body.user._id;
 		await this.deleteEventByIdService.execute(userId, eventId);
 
-		return res.status(201).json({
+		return res.status(204).json({
 			status: 'success',
 			message: `Event of id ${eventId} deleted`,
 		});
