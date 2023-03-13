@@ -3,6 +3,20 @@ import { IEventsRepository } from '../IEventsRepository';
 import { v4 } from 'uuid';
 
 export class InMemoryEventsRepository implements IEventsRepository {
+	async isWeekDay(weekDay: string): Promise<boolean> {
+		const week: string[] = [
+			'monday',
+			'tuesday',
+			'wednesday',
+			'thursday',
+			'friday',
+			'saturday',
+			'sunday',
+		];
+		if (week.includes(weekDay)) return true;
+		return false;
+	}
+
 	private events: Event[] = [];
 
 	async createEvent(event: Event): Promise<Event | null> {
